@@ -2,6 +2,7 @@ class Name=createMovies < ActiveRecord::Migration[6.1]
   def change
     create_table :movies do |t|
       t.string :title
+      t.
       t.string :genre
       t.string :description
       t.string :year
