@@ -1,14 +1,16 @@
-puts "🌱 Seeding spices..."
+puts "🌱 Seeding movies..."
 
 # Seed your database here
 10.times do
     # create a movie with random data
     Movie.create(
-      title: Faker::Movie.title,
+      title: Faker::Movie.title,  
+      poster: src="https://loremflickr.com/320/240"
       genre: Faker::Movie.genre,
       description: Faker::Movie.description,
-      year: Faker::Movie.year,
-      
+      year: rand(1960...2023)
+      release_date: Faker::Movie.release_date,
+      runtime: Faker::Movie.runtime
     )
   end
 

@@ -44,7 +44,7 @@ group :development do
 end
 
 gem "faker"
-gem "lorempixel"
+
 
 # These gems will only be used when we are running tests
 group :test do
