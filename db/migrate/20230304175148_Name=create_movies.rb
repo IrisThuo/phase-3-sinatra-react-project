@@ -6,7 +6,8 @@ class Name=createMovies < ActiveRecord::Migration[6.1]
       t.string :description
       t.string :year
       t.string :runtime
-      t.timestamp :release_date
+      t.date :release_date
+      t.timestamps
     end
   end
 end
