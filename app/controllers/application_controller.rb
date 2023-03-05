@@ -7,6 +7,11 @@ class ApplicationController < Sinatra::Base
    movies.to_json
   end
 
+  get '/movies/:id' do
+    movies = Movie.find(params[:id])
+    movies.to_json
+  end
+
   get '/movies/:title' do
     movies = Movie.find_by(params[:title])
     movies.to_json
@@ -19,6 +24,18 @@ class ApplicationController < Sinatra::Base
 
   post '/movies' do 
     movies = Movie.create(
+      title: params[:title],
+      poster: params[:poster],
+      description: params[:description],
+      year: params[:year],
+      runtime: params[:runtime]
+    )
+    movies.to_json
+  end
+
+  patch '/movies/:id' do
+    movies = Movie.find(params[:id])
+    movies.update(
       title: params[:title],
       poster: params[:poster],
       description: params[:description],
