@@ -55,6 +55,21 @@ class ApplicationController < Sinatra::Base
   get "/users" do
     users = User.all
     users.to_json
-   end
+  end
+
+  post "/users" do
+    users = User.create(
+      username: params[:username],
+      password: params[:password]
+    )
+    users.to_json
+  end
+
+  delete "/users/:id" do
+    users = User.find(params[:id])
+    users.destroy
+    users.to_json
+  end
+
 
 end
