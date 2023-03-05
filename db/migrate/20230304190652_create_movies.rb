@@ -7,7 +7,6 @@ class CreateMovies < ActiveRecord::Migration[6.1]
     t.string :description
     t.integer :year
     t.string :runtime
-    t.date :release_date
     t.timestamps
     end
 
