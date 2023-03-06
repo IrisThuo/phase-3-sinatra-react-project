@@ -78,4 +78,18 @@ class ApplicationController < Sinatra::Base
     movies.to_json
   end
 
+  post '/login' do
+    password = params[:password]
+    logging_user = User.find_by(username: params[:username])
+    if (logging_user)
+      if (logging_user.password == password)
+        return logging_user.to_json
+      else
+        login_error
+      end      
+    else
+      login_error    
+    end
+  end
+
 end
