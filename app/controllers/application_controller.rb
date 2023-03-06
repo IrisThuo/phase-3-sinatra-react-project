@@ -92,4 +92,12 @@ class ApplicationController < Sinatra::Base
     end
   end
 
+  post '/newuser' do
+    new_user = User.create(
+      username: params[:username],
+      password: params[:password]
+    )
+    new_user.to_json
+  end
+
 end
