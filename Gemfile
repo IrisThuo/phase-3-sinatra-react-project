@@ -45,6 +45,8 @@ end
 
 gem "faker"
 
+gem 'bcrypt'
+
 
 # These gems will only be used when we are running tests
 group :test do
