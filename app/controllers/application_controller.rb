@@ -23,11 +23,6 @@ class ApplicationController < Sinatra::Base
     end
   end 
 
-  get '/movies/:year' do
-    movies = Movie.find_by(params[:year])
-    movies.to_json
-  end
-
   post '/movies' do 
     movies = Movie.create(
       title: params[:title],
@@ -77,5 +72,10 @@ class ApplicationController < Sinatra::Base
     users.to_json
   end
 
+  get '/movies/:user_id' do
+    user = params[:user_id].to_i
+    movies = Movie.where(user_id: user)
+    movies.to_json
+  end
 
 end
