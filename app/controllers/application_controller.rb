@@ -12,10 +12,16 @@ class ApplicationController < Sinatra::Base
     movies.to_json
   end
 
-  get '/movies/:title' do
-    movies = Movie.find_by(params[:title])
-    movies.to_json
-  end
+  get '/search/:term' do
+    term = params[:term]
+    movie = Movie.where(year: term.to_i) ||  Movie.find_by(title: term)
+    if movie
+      return movie.to_json    
+    else
+      error_message = {error: "Could not find movie that matches search term"} 
+      return error_message.to_json     
+    end
+  end 
 
   get '/movies/:year' do
     movies = Movie.find_by(params[:year])

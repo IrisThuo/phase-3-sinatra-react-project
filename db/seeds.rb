@@ -1,7 +1,7 @@
 puts "🌱 Seeding ..."
 
 # Seed your database here
-20.times do
+2.times do
     # create a movie with random data
     Movie.create(
       title: Faker::Movie.title,  
