@@ -100,4 +100,6 @@ class ApplicationController < Sinatra::Base
     new_user.to_json
   end
 
+ 
+
 end
